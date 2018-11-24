@@ -15,17 +15,15 @@ source:
   sha256: 623f4fd4af2a4fdeb3338410dbbf2a89ef431e36ea17804ad9132f9f6fa78b1d
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
-  number: 0
+  number: 1000
   rpaths:
     - lib/R/lib/
     - lib/
 
 # Suggests: car, lattice, partykit, strucchange
 requirements:
-  build:
-    - {{posix}}zip               # [win]
-
   host:
     - r-base
     - r-formula
