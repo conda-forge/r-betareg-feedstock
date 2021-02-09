@@ -1,4 +1,4 @@
-{% set version = "3.1-3" %}
+{% set version = "3.1-4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/betareg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/betareg/betareg_{{ version }}.tar.gz
-  sha256: cc19387ec516492d11cf59cdfa07e1733950a2af8196c1e155bc95939bc76246
+  sha256: 5106986096a68b2b516215968158589b71969ce7912879253d6e930355a18101
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -46,12 +46,10 @@ test:
 about:
   home: https://CRAN.R-project.org/package=betareg
   license: GPL-2 | GPL-3
-  summary: Beta regression for modeling beta-distributed dependent variables, e.g., rates and
-    proportions. In addition to maximum likelihood regression (for both mean and precision
-    of a beta-distributed response), bias-corrected and bias-reduced estimation as well
-    as finite mixture models and recursive partitioning for beta regressions are provided.
+  summary: Beta regression for modeling beta-distributed dependent variables, e.g., rates and proportions. In addition to maximum likelihood regression (for both mean and precision of a beta-distributed response), bias-corrected and bias-reduced estimation as well as finite mixture models and recursive partitioning for beta
+    regressions are provided.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
