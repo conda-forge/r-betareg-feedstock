@@ -1,4 +1,4 @@
-{% set version = "3.1-4" %}
+{% set version = "3.2-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/betareg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/betareg/betareg_{{ version }}.tar.gz
-  sha256: 5106986096a68b2b516215968158589b71969ce7912879253d6e930355a18101
+  sha256: 10b49ebfb1dafbe890df41decb4ec82d38deb240c817273f5fcf674f8d07b3e4
 
 build:
   merge_build_host: true  # [win]
-  number: 2
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
