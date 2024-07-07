@@ -3,11 +3,11 @@ About r-betareg-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-betareg-feedstock/blob/main/LICENSE.txt)
 
-Home: https://CRAN.R-project.org/package=betareg
+Home: https://betareg.R-Forge.R-project.org/
 
-Package license: GPL-2 | GPL-3
+Package license: GPL-2.0-or-later
 
-Summary: Beta regression for modeling beta-distributed dependent variables, e.g., rates and proportions. In addition to maximum likelihood regression (for both mean and precision of a beta-distributed response), bias-corrected and bias-reduced estimation as well as finite mixture models and recursive partitioning for beta regressions are provided.
+Summary: Beta regression for modeling beta-distributed dependent variables on the open unit interval (0, 1), e.g., rates and proportions, see Cribari-Neto and Zeileis (2010) <doi:10.18637/jss.v034.i02>. Moreover, extended-support beta regression models can accommodate dependent variables with boundary observations at 0 and/or 1. For the classical beta regression model, alternative specifications are provided: Bias-corrected and bias-reduced estimation, finite mixture models, and recursive partitioning for beta regression, see Grün, Kosmidis, and Zeileis (2012) <doi:10.18637/jss.v048.i11>.
 
 Current build status
 ====================
@@ -95,7 +95,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
