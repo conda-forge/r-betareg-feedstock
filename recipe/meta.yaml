@@ -44,12 +44,18 @@ test:
     - "\"%R%\" -e \"library('betareg')\""  # [win]
 
 about:
-  home: https://CRAN.R-project.org/package=betareg
-  license: GPL-2 | GPL-3
-  summary: Beta regression for modeling beta-distributed dependent variables, e.g., rates and proportions. In addition to maximum likelihood regression (for both mean and precision of a beta-distributed response), bias-corrected and bias-reduced estimation as well as finite mixture models and recursive partitioning for beta
-    regressions are provided.
+  home: https://betareg.R-Forge.R-project.org/
+  license: GPL-2.0-or-later
+  summary: "Beta regression for modeling beta-distributed dependent variables on the open unit
+    interval (0, 1), e.g., rates and proportions, see Cribari-Neto and Zeileis (2010)
+    <doi:10.18637/jss.v034.i02>. Moreover, extended-support beta regression models can
+    accommodate dependent variables with boundary observations at 0 and/or 1. For the
+    classical beta regression model, alternative specifications are provided: Bias-corrected
+    and bias-reduced estimation, finite mixture models, and recursive partitioning for
+    beta regression, see Gr\xFCn, Kosmidis, and Zeileis (2012) <doi:10.18637/jss.v048.i11>."
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
