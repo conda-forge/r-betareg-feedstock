@@ -1,4 +1,4 @@
-{% set version = "3.2-0" %}
+{% set version = "3.2-1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/betareg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/betareg/betareg_{{ version }}.tar.gz
-  sha256: 10b49ebfb1dafbe890df41decb4ec82d38deb240c817273f5fcf674f8d07b3e4
+  sha256: bb26368297f396766ca4b6f4d723713b64223d7f6bb20110ea3c7e9da33df7c7
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -44,13 +44,8 @@ test:
 about:
   home: https://betareg.R-Forge.R-project.org/
   license: GPL-2.0-or-later
-  summary: "Beta regression for modeling beta-distributed dependent variables on the open unit
-    interval (0, 1), e.g., rates and proportions, see Cribari-Neto and Zeileis (2010)
-    <doi:10.18637/jss.v034.i02>. Moreover, extended-support beta regression models can
-    accommodate dependent variables with boundary observations at 0 and/or 1. For the
-    classical beta regression model, alternative specifications are provided: Bias-corrected
-    and bias-reduced estimation, finite mixture models, and recursive partitioning for
-    beta regression, see Gr\xFCn, Kosmidis, and Zeileis (2012) <doi:10.18637/jss.v048.i11>."
+  summary: "Beta regression for modeling beta-distributed dependent variables on the open unit interval (0, 1), e.g., rates and proportions, see Cribari-Neto and Zeileis (2010) <doi:10.18637/jss.v034.i02>. Moreover, extended-support beta regression models can accommodate dependent variables with boundary observations at
+    0 and/or 1. For the classical beta regression model, alternative specifications are provided: Bias-corrected and bias-reduced estimation, finite mixture models, and recursive partitioning for beta regression, see Grün, Kosmidis, and Zeileis (2012) <doi:10.18637/jss.v048.i11>."
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
