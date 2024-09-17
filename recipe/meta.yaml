@@ -12,15 +12,27 @@ source:
   sha256: bb26368297f396766ca4b6f4d723713b64223d7f6bb20110ea3c7e9da33df7c7
 
 build:
-  number: 0
-  noarch: generic
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
-    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - {{ compiler('c') }}        # [not win]
+    - {{ stdlib('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib('m2w64_c') }}    # [win]
+    - {{ posix }}filesystem      # [win]
+    - {{ posix }}make
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
+    - {{ posix }}zip             # [win]
   host:
     - r-base
     - r-formula
@@ -42,32 +54,21 @@ test:
     - "\"%R%\" -e \"library('betareg')\""  # [win]
 
 about:
-  home: https://betareg.R-Forge.R-project.org/
+  home: https://topmodels.R-Forge.R-project.org/betareg/
   license: GPL-2.0-or-later
-  summary: "Beta regression for modeling beta-distributed dependent variables on the open unit interval (0, 1), e.g., rates and proportions, see Cribari-Neto and Zeileis (2010) <doi:10.18637/jss.v034.i02>. Moreover, extended-support beta regression models can accommodate dependent variables with boundary observations at
-    0 and/or 1. For the classical beta regression model, alternative specifications are provided: Bias-corrected and bias-reduced estimation, finite mixture models, and recursive partitioning for beta regression, see Grün, Kosmidis, and Zeileis (2012) <doi:10.18637/jss.v048.i11>."
+  summary: "Beta regression for modeling beta-distributed dependent variables on the open unit
+    interval (0, 1), e.g., rates and proportions, see Cribari-Neto and Zeileis (2010)
+    <doi:10.18637/jss.v034.i02>. Moreover, extended-support beta regression models can
+    accommodate dependent variables with boundary observations at 0 and/or 1. For the
+    classical beta regression model, alternative specifications are provided: Bias-corrected
+    and bias-reduced estimation, finite mixture models, and recursive partitioning for
+    beta regression, see Gr\xFCn, Kosmidis, and Zeileis (2012) <doi:10.18637/jss.v048.i11>."
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - sebastian-luna-valero
-
-# Package: betareg
-# Version: 3.1-2
-# Date: 2018-05-16
-# Title: Beta Regression
-# Authors@R: c(person(given = "Achim", family = "Zeileis", role = c("aut", "cre"), email = "Achim.Zeileis@R-project.org"), person(given = "Francisco", family = "Cribari-Neto", role = "aut", email = "cribari@ufpe.br"), person(given = "Bettina", family = "Gruen", role = "aut", email = "Bettina.Gruen@jku.at"), person(given = "Ioannis", family = "Kosmidis", role = "aut", email = "ioannis@stats.ucl.ac.uk"), person(given = c("Alexandre", "B."), family = "Simas", role = "ctb", comment = "earlier version by"), person(given = c("Andrea", "V."), family = "Rocha", role = "ctb", comment = "earlier version by"))
-# Description: Beta regression for modeling beta-distributed dependent variables, e.g., rates and proportions. In addition to maximum likelihood regression (for both mean and precision of a beta-distributed response), bias-corrected and bias-reduced estimation as well as finite mixture models and recursive partitioning for beta regressions are provided.
-# Depends: R (>= 3.0.0)
-# Imports: graphics, grDevices, methods, stats, flexmix, Formula, lmtest, modeltools, sandwich
-# Suggests: car, lattice, partykit, strucchange
-# License: GPL-2 | GPL-3
-# NeedsCompilation: no
-# Packaged: 2019-05-16 09:55:07 UTC; zeileis
-# Author: Achim Zeileis [aut, cre], Francisco Cribari-Neto [aut], Bettina Gruen [aut], Ioannis Kosmidis [aut], Alexandre B. Simas [ctb] (earlier version by), Andrea V. Rocha [ctb] (earlier version by)
-# Maintainer: Achim Zeileis <Achim.Zeileis@R-project.org>
-# Repository: CRAN
-# Date/Publication: 2019-05-16 19:52:50 UTC
