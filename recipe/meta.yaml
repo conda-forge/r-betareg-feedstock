@@ -12,7 +12,7 @@ source:
   sha256: bb26368297f396766ca4b6f4d723713b64223d7f6bb20110ea3c7e9da33df7c7
 
 build:
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,6 +24,11 @@ build:
 requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-formula                  # [build_platform != target_platform]
+    - r-flexmix                  # [build_platform != target_platform]
+    - r-lmtest                   # [build_platform != target_platform]
+    - r-modeltools               # [build_platform != target_platform]
+    - r-sandwich                 # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
     - {{ stdlib('c') }}          # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
@@ -63,7 +68,6 @@ about:
     classical beta regression model, alternative specifications are provided: Bias-corrected
     and bias-reduced estimation, finite mixture models, and recursive partitioning for
     beta regression, see Gr\xFCn, Kosmidis, and Zeileis (2012) <doi:10.18637/jss.v048.i11>."
-  license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
