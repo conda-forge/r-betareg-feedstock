@@ -1,4 +1,4 @@
-{% set version = "3.2-3" %}
+{% set version = "3.2-4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/betareg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/betareg/betareg_{{ version }}.tar.gz
-  sha256: dcb682e305ec6390ad56ade6d99fcd8c30f122e39844b2e435f591a9e97f3f46
+  sha256: 5ba44d30d45eb3b5bd93ca13c03b596558576a77e61a99aa9b7e00c0b6a6abfd
 
 build:
   number: 0
