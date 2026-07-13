@@ -1,18 +1,18 @@
-{% set version = "3.2-4" %}
+{% set version = "3.2-5" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-betareg
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/betareg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/betareg/betareg_{{ version }}.tar.gz
-  sha256: 5ba44d30d45eb3b5bd93ca13c03b596558576a77e61a99aa9b7e00c0b6a6abfd
+  sha256: 335f31a6d283b0e119ae84b34dcaa1e0d7d75fc406c4d63811de39da7ba176f4
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
